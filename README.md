@@ -13,5 +13,5 @@ Sure, you can either fork the project and I'll merge your changes or report issu
 The project was made in 2017.2.2f1, however most of the ideas/scripts in it should work in other versions.
 
 ### General links
-[Follow me on Twitter](https://twitter.com/christides11)
-[Paypal donation](paypal.me/ChrisTides11)
+[Follow me on Twitter](https://twitter.com/christides11)    
+[Paypal donation](paypal.me/ChrisTides11)    
