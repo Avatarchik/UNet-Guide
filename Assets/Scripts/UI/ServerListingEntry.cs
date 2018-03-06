@@ -15,19 +15,21 @@ public class ServerListingEntry : MonoBehaviour {
 	public Button button;
 
 	MatchInfoSnapshot ma;
+	ServerListMenu slm;
 
 	void Awake(){
 		button.onClick.AddListener(delegate{JoinMatch();});
 	}
 
-	public void Fill(MatchInfoSnapshot match){
+	public void Fill(MatchInfoSnapshot match, ServerListMenu sListMenu){
 		ma = match;
 		password.SetActive(match.isPrivate ? true : false);
 		serverName.text = match.name;
 		playerCount.text = match.currentSize + "/" + match.maxSize;
+		slm = sListMenu;
 	}
 
 	public void JoinMatch(){
-		NetworkLobbyManager.singleton.matchMaker.JoinMatch(ma.networkId, "", "", "", 0, 0, NetworkLobbyManager.singleton.OnMatchJoined);
+		NetworkLobbyManager.singleton.matchMaker.JoinMatch(ma.networkId, "", "", "", 0, 0, slm.OnMatchJoined);
 	}
 }

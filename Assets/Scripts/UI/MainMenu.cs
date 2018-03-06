@@ -8,7 +8,9 @@ public class MainMenu : MonoBehaviour {
 	public GameObject serverListingMenu;
 
 	public void Awake(){
-		SceneManager.LoadScene("Managers", LoadSceneMode.Additive);
+		if(SceneManager.sceneCount == 1){
+			SceneManager.LoadScene("Managers", LoadSceneMode.Additive);
+		}
 	}
 
 	public void StartSP(){

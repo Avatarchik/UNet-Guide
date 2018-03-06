@@ -27,8 +27,4 @@ public class LobbyManager : NetworkLobbyManager {
         base.OnLobbyStartServer();
         Debug.Log("Server started.");
     }
-
-    //public override bool OnLobbyServerSceneLoadedForPlayer(GameObject lobbyPlayer, GameObject gamePlayer){
-    //    return true;
-    //}
 }

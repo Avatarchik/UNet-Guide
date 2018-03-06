@@ -23,6 +23,11 @@ public class ServerListMenu : MonoBehaviour {
 		gameObject.SetActive(false);
 	}
 
+	public void ToLobby(){
+		lobby.SetActive(true);
+		gameObject.SetActive(false);
+	}
+
 	public void ListMatches(){
 		LobbyManager.singleton.matchMaker.ListMatches(0, 10, "", false, 0, 0, OnListMatches);
 	}
@@ -42,12 +47,22 @@ public class ServerListMenu : MonoBehaviour {
 
 		for(int i = 0; i < matches.Count; i++){
 			GameObject s = GameObject.Instantiate(serverListingPrefab.gameObject);
-			s.GetComponent<ServerListingEntry>().Fill(matches[i]);
+			s.GetComponent<ServerListingEntry>().Fill(matches[i], this);
 			s.transform.SetParent(serverListParent, false);
 		}
 	}
 
 	public void CreateMatch(){
-		LobbyManager.singleton.matchMaker.CreateMatch("Random Room " + Random.Range(0, 500), 4, true, "", "", "", 0, 0, LobbyManager.singleton.OnMatchCreate);
+		LobbyManager.singleton.matchMaker.CreateMatch("Random Room " + Random.Range(0, 500), 4, true, "", "", "", 0, 0, OnMatchCreate);
+	}
+
+	void OnMatchCreate(bool success, string extendedInfo, MatchInfo matchInfo){
+		ToLobby();
+		LobbyManager.singleton.OnMatchCreate(success, extendedInfo, matchInfo);
+	}
+
+	public void OnMatchJoined(bool success, string extendedInfo, MatchInfo matchInfo){
+		ToLobby();
+		LobbyManager.singleton.OnMatchJoined(success, extendedInfo, matchInfo);
 	}
 }
