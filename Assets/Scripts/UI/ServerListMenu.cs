@@ -28,15 +28,16 @@ public class ServerListMenu : MonoBehaviour {
 	}
 
 	public void OnListMatches(bool success, string extendedInfo, List<MatchInfoSnapshot> matches){
+		
+		foreach(Transform t in serverListParent){
+			if(t.name != "Header"){
+				Destroy(t.gameObject);
+			}
+		}
+
 		if(matches.Count == 0){
 			Debug.Log("No matches found.");
 			return;
-		}
-
-		foreach(Transform t in serverListParent){
-			if(t.GetSiblingIndex() != 0){
-				Destroy(t.gameObject);
-			}
 		}
 
 		for(int i = 0; i < matches.Count; i++){
@@ -47,6 +48,6 @@ public class ServerListMenu : MonoBehaviour {
 	}
 
 	public void CreateMatch(){
-		LobbyManager.singleton.matchMaker.CreateMatch("Random Room " + Random.Range(0, 500), 4, true, "", "", "", 0, 0, NetworkManager.singleton.OnMatchCreate);
+		LobbyManager.singleton.matchMaker.CreateMatch("Random Room " + Random.Range(0, 500), 4, true, "", "", "", 0, 0, LobbyManager.singleton.OnMatchCreate);
 	}
 }

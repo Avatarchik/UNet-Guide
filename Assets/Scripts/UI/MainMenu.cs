@@ -1,10 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
 	public GameObject serverListingMenu;
+
+	public void Awake(){
+		SceneManager.LoadScene("Managers", LoadSceneMode.Additive);
+	}
 
 	public void StartSP(){
 		LobbyManager.singleton.StopMatchMaker();

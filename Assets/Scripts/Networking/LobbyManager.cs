@@ -5,13 +5,13 @@ using UnityEngine.Networking;
 
 public class LobbyManager : NetworkLobbyManager {
 
-    //public override void OnMatchCreate(bool success, string extendedInfo, UnityEngine.Networking.Match.MatchInfo matchInfo){
-    //    base.OnMatchCreate(success, extendedInfo, matchInfo);
-    //}
+    public GameObject[] gamePlayers;
 
-    //public override GameObject OnLobbyServerCreateLobbyPlayer(NetworkConnection conn, short playerControllerId){
-    //    return lobbyPlayerPrefab.gameObject;
-    //}
+    public override GameObject OnLobbyServerCreateGamePlayer(NetworkConnection conn, short playerControllerId){
+        Debug.Log("Create game player.");
+        gamePlayerPrefab = gamePlayers[Random.Range(0, gamePlayers.Length+1)];
+        return base.OnLobbyServerCreateGamePlayer(conn, playerControllerId);
+    }
 
     public override void OnClientConnect(NetworkConnection conn){
         Debug.Log("Client connected.");
@@ -27,4 +27,8 @@ public class LobbyManager : NetworkLobbyManager {
         base.OnLobbyStartServer();
         Debug.Log("Server started.");
     }
+
+    //public override bool OnLobbyServerSceneLoadedForPlayer(GameObject lobbyPlayer, GameObject gamePlayer){
+    //    return true;
+    //}
 }
