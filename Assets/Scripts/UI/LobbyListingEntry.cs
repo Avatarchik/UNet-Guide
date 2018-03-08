@@ -6,7 +6,7 @@ using UnityEngine.Networking;
 using UnityEngine.Networking.Match;
 using UnityEngine.Networking.Types;
 
-public class ServerListingEntry : MonoBehaviour {
+public class LobbyListingEntry : MonoBehaviour {
 	public GameObject password;
 	public Text serverName;
 	public Text playerCount;
@@ -15,21 +15,21 @@ public class ServerListingEntry : MonoBehaviour {
 	public Button button;
 
 	MatchInfoSnapshot ma;
-	ServerListMenu slm;
+	LobbyListMenu llm;
 
 	void Awake(){
 		button.onClick.AddListener(delegate{JoinMatch();});
 	}
 
-	public void Fill(MatchInfoSnapshot match, ServerListMenu sListMenu){
+	public void Fill(MatchInfoSnapshot match, LobbyListMenu lListMenu){
 		ma = match;
 		password.SetActive(match.isPrivate ? true : false);
 		serverName.text = match.name;
 		playerCount.text = match.currentSize + "/" + match.maxSize;
-		slm = sListMenu;
+		llm = lListMenu;
 	}
 
 	public void JoinMatch(){
-		NetworkLobbyManager.singleton.matchMaker.JoinMatch(ma.networkId, "", "", "", 0, 0, slm.OnMatchJoined);
+		NetworkLobbyManager.singleton.matchMaker.JoinMatch(ma.networkId, "", "", "", 0, 0, llm.OnMatchJoined);
 	}
 }

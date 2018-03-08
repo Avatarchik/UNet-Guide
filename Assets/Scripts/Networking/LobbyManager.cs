@@ -5,11 +5,16 @@ using UnityEngine.Networking;
 
 public class LobbyManager : NetworkLobbyManager {
 
-    public GameObject[] gamePlayers;
+    public static LobbyManager lmSingleton;
+    [SerializeField]
+    private GameObject[] gamePlayers;
+
+    void Awake(){
+        lmSingleton = this;
+    }
 
     public override GameObject OnLobbyServerCreateGamePlayer(NetworkConnection conn, short playerControllerId){
-        Debug.Log("Create game player.");
-        gamePlayerPrefab = gamePlayers[Random.Range(0, gamePlayers.Length+1)];
+        Debug.Log("Created game player.");
         return base.OnLobbyServerCreateGamePlayer(conn, playerControllerId);
     }
 
@@ -26,5 +31,9 @@ public class LobbyManager : NetworkLobbyManager {
     public override void OnLobbyStartServer(){
         base.OnLobbyStartServer();
         Debug.Log("Server started.");
+    }
+
+    public void SetCharacter(int characterIndex){
+        gamePlayerPrefab = gamePlayers[characterIndex];
     }
 }

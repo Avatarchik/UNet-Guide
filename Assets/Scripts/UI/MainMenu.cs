@@ -14,8 +14,8 @@ public class MainMenu : MonoBehaviour {
 	}
 
 	public void StartSP(){
-		LobbyManager.singleton.StopMatchMaker();
-		LobbyManager.singleton.StartHost();
+		LobbyManager.lmSingleton.StopMatchMaker();
+		LobbyManager.lmSingleton.StartHost();
 	}
 
 	public void OpenServerListMenu(){
