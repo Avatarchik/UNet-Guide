@@ -8,6 +8,8 @@ public class LobbyManager : NetworkLobbyManager {
     public static LobbyManager lmSingleton;
     [SerializeField]
     private GameObject[] gamePlayers;
+    public bool serverAuthority = false;
+    public int seed = 1;
 
     void Awake(){
         lmSingleton = this;
@@ -15,6 +17,7 @@ public class LobbyManager : NetworkLobbyManager {
 
     public override GameObject OnLobbyServerCreateGamePlayer(NetworkConnection conn, short playerControllerId){
         Debug.Log("Created game player.");
+        Random.InitState(1);
         return base.OnLobbyServerCreateGamePlayer(conn, playerControllerId);
     }
 

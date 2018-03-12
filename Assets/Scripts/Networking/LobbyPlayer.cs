@@ -16,7 +16,6 @@ public class LobbyPlayer : NetworkLobbyPlayer {
         listEntry.ready.onClick.AddListener(delegate{ChangeReadyStatus();});
         listEntry.characterOne.onClick.AddListener(delegate{SelectCharacterOne();});
         listEntry.characterTwo.onClick.AddListener(delegate{SelectCharacterTwo();});
-        NetworkServer.SpawnWithClientAuthority(lE, gameObject);
     }
 
     void ChangeReadyStatus(){

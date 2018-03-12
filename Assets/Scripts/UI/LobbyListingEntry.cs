@@ -30,6 +30,6 @@ public class LobbyListingEntry : MonoBehaviour {
 	}
 
 	public void JoinMatch(){
-		NetworkLobbyManager.singleton.matchMaker.JoinMatch(ma.networkId, "", "", "", 0, 0, llm.OnMatchJoined);
+		LobbyManager.lmSingleton.matchMaker.JoinMatch(ma.networkId, "", "", "", 0, 0, llm.OnMatchJoined);
 	}
 }

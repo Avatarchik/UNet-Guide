@@ -219,7 +219,7 @@ MonoBehaviour:
   m_MinPlayers: 0
   m_LobbyPlayerPrefab: {fileID: 114761782258671448, guid: c41b949801c449845b6b5174ca101e85,
     type: 2}
-  m_GamePlayerPrefab: {fileID: 1519940507844042, guid: bd3e8902abb85cf419e18fed8b3ec4b4,
+  m_GamePlayerPrefab: {fileID: 1289638326755340, guid: 365a0354e068752428756a3bddae2391,
     type: 2}
   m_LobbyScene: MainMenu
   m_PlayScene: LevelOne
@@ -227,6 +227,8 @@ MonoBehaviour:
   gamePlayers:
   - {fileID: 1289638326755340, guid: 365a0354e068752428756a3bddae2391, type: 2}
   - {fileID: 1519940507844042, guid: bd3e8902abb85cf419e18fed8b3ec4b4, type: 2}
+  serverAuthority: 0
+  seed: 1
 --- !u!4 &223243279
 Transform:
   m_ObjectHideFlags: 0
