@@ -5,10 +5,10 @@ using UnityEngine;
 public class PlayerTrackedInfo{
 
 	public Vector3 pos;
-	public Quaternion rot;
+	public Vector3 rotOther;
 
-	public PlayerTrackedInfo(Vector3 position, Quaternion rotation){
+	public PlayerTrackedInfo(Vector3 position, Vector3 eAng){
 		pos = position;
-		rot = rotation;
+		rotOther = eAng;
 	}
 }

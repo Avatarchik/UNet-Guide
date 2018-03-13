@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 
 public class PlayerInput : NetworkBehaviour {
 
-	PlayerManager playerManager;
+	BasePlayerManager playerManager;
 	[SerializeField]
 	MeshRenderer meshRenderer;
 
@@ -15,7 +15,7 @@ public class PlayerInput : NetworkBehaviour {
 
 	void SetupPlayer(){
 		if(isLocalPlayer){
-			playerManager = GetComponent<PlayerManager>();
+			playerManager = GetComponent<BasePlayerManager>();
 		}else{
 
 		}
