@@ -158,6 +158,8 @@ MonoBehaviour:
   - {fileID: 1289638326755340, guid: 365a0354e068752428756a3bddae2391, type: 2}
   - {fileID: 1519940507844042, guid: bd3e8902abb85cf419e18fed8b3ec4b4, type: 2}
   - {fileID: 1423643230044810, guid: 6f8f1c79c8ac93144bc519308fbe7063, type: 2}
+  - {fileID: 1025017639269630, guid: 523f4b7d0a708bd4e8e9bc61325052b4, type: 2}
+  - {fileID: 1025017639269630, guid: 223c02f7b77dfe647a55be394b639138, type: 2}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:
@@ -219,7 +221,7 @@ MonoBehaviour:
   m_MinPlayers: 0
   m_LobbyPlayerPrefab: {fileID: 114761782258671448, guid: c41b949801c449845b6b5174ca101e85,
     type: 2}
-  m_GamePlayerPrefab: {fileID: 1519940507844042, guid: bd3e8902abb85cf419e18fed8b3ec4b4,
+  m_GamePlayerPrefab: {fileID: 1289638326755340, guid: 365a0354e068752428756a3bddae2391,
     type: 2}
   m_LobbyScene: MainMenu
   m_PlayScene: LevelOne
